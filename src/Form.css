@@ -41,6 +41,7 @@ input:focus, textarea:focus {
 .message {
 	padding-bottom: 100px;
 	width: 400px;
+	resize: none;
 	white-space: pre-line;
 	white-space: pre-wrap;
 }
