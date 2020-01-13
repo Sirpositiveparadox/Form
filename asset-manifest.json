@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "sirpositiveparadpx.github.io/static/css/main.96d74a0c.chunk.css",
+    "main.js": "sirpositiveparadpx.github.io/static/js/main.05316fe2.chunk.js",
+    "main.js.map": "sirpositiveparadpx.github.io/static/js/main.05316fe2.chunk.js.map",
+    "runtime-main.js": "sirpositiveparadpx.github.io/static/js/runtime-main.5558cb2a.js",
+    "runtime-main.js.map": "sirpositiveparadpx.github.io/static/js/runtime-main.5558cb2a.js.map",
+    "static/css/2.eb45ad44.chunk.css": "sirpositiveparadpx.github.io/static/css/2.eb45ad44.chunk.css",
+    "static/js/2.91fc5029.chunk.js": "sirpositiveparadpx.github.io/static/js/2.91fc5029.chunk.js",
+    "static/js/2.91fc5029.chunk.js.map": "sirpositiveparadpx.github.io/static/js/2.91fc5029.chunk.js.map",
+    "index.html": "sirpositiveparadpx.github.io/index.html",
+    "precache-manifest.d7e346660429601bc6c987ff4b2dbaeb.js": "sirpositiveparadpx.github.io/precache-manifest.d7e346660429601bc6c987ff4b2dbaeb.js",
+    "service-worker.js": "sirpositiveparadpx.github.io/service-worker.js",
+    "static/css/2.eb45ad44.chunk.css.map": "sirpositiveparadpx.github.io/static/css/2.eb45ad44.chunk.css.map",
+    "static/css/main.96d74a0c.chunk.css.map": "sirpositiveparadpx.github.io/static/css/main.96d74a0c.chunk.css.map",
+    "static/js/2.91fc5029.chunk.js.LICENSE": "sirpositiveparadpx.github.io/static/js/2.91fc5029.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5558cb2a.js",
+    "static/css/2.eb45ad44.chunk.css",
+    "static/js/2.91fc5029.chunk.js",
+    "static/css/main.96d74a0c.chunk.css",
+    "static/js/main.05316fe2.chunk.js"
+  ]
+}
