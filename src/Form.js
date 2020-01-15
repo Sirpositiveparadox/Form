@@ -90,8 +90,12 @@ class Form extends Component {
 
 				axios.post(url, data)
 					.then((response) => {
+						fields.email = '';
+						fields.text = '';
 						this.setState({
 							showMsg:true,
+							fields: fields,
+							errors: {}
 						});
 
 				}).catch(err => {
@@ -105,13 +109,10 @@ class Form extends Component {
 
 					if(err.response.status === 422) {
 						this.setState({
-							errors: err.response.errors
+							errors: err.response.data.errors
 						})
 					}
 				});
-
-				fields.email = '';
-				fields.text = '';
 			}
 
 		}
