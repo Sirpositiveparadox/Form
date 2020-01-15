@@ -15,7 +15,7 @@ h1 {
 }
 
 p {
-	padding-bottom: 30px;
+	padding-bottom: 20px;
 }
 
 label {
@@ -32,6 +32,7 @@ input, textarea {
 input:focus, textarea:focus {
 	outline-color: #ABDAFB;
 }
+
 
 
 .email {
@@ -57,6 +58,14 @@ input:focus, textarea:focus {
 .Button:hover {
 	background-color: #34BDDD;
 }
+
+
+.showMsg {
+	font-size: 15px;
+	color: #45C700;
+	padding-bottom: 15px;
+}
+
 
 
 .error {

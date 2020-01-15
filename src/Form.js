@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Form.css';
+import axios from 'axios';
 
 
 class Form extends Component {
@@ -7,7 +8,8 @@ class Form extends Component {
 		super();
 		this.state = {
 			fields: {},
-			errors: {}
+			errors: {},
+			showMsg: false,
 		}
 
 		this.handleChange = this.handleChange.bind(this);
@@ -23,20 +25,9 @@ class Form extends Component {
 
 	}
 
-	submitForm(e) {
-		e.preventDefault();
-		if (this.validateForm()) {
-			let fields = {};
-			fields['email'] = '';
-			fields['feedback'] = '';
-			this.setState({fields:fields});
-			alert('Feedback submitted');
-		}
-	}
 
 	validateForm() {
 		let fields = this.state.fields;
-		console.log()
 		let errors = {};
 		let formValid = true;
 
@@ -49,34 +40,81 @@ class Form extends Component {
 			let pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 	        if (!pattern.test(fields['email'])) {
 		          formValid = false;
-		          errors["email"] = "* Please enter a valid email address.";
+		          errors['email'] = "* Please enter a valid email address.";
 		      }
 		}
 
-		if (!fields.feedback) {
+		if (!fields.text) {
 			formValid = false;
-			errors['feedback'] = '* Please enter your feedback.';
+			errors['text'] = '* Please enter your text.';
 		};
 
-		if (fields.feedback && fields.feedback.length > 0 && fields.feedback.length < 10){
+		if (fields.text && fields.text.length > 0 && fields.text.length < 10){
 
 			formValid = false;
-			errors['feedback'] = '* Feedback message must contain at least 10 characters.';
+			errors['text'] = '* Feedback message must contain at least 10 characters.';
 		}
 
-		if (fields.feedback && fields.feedback.length > 200) {
+		if (fields.text && fields.text.length > 200) {
 			formValid = false;
-			errors['feedback'] = '* Maximum amount of characters: 200.';
+			errors['text'] = '* Maximum amount of characters: 200.';
 		}
-
 
 
 		this.setState({
 			errors: errors
 		});
 
+
+
 		return formValid;
 	}
+
+
+
+		submitForm(e) {
+			e.preventDefault();
+			let fields = this.state.fields;
+			this.setState({
+				showMsg:false
+			});
+
+			if (this.validateForm()) {
+				let data = {
+					email: this.state.fields.email,
+					text: this.state.fields.text
+				}
+
+
+				let url = 'https://dev.choicy.com/api/feedback';
+
+				axios.post(url, data)
+					.then((response) => {
+						this.setState({
+							showMsg:true,
+						});
+
+				}).catch(err => {
+					if(err.response.status === 500) {
+						this.setState({
+							errors: {
+								common: 'Server error'
+							}
+						})
+					}
+
+					if(err.response.status === 422) {
+						this.setState({
+							errors: err.response.errors
+						})
+					}
+				});
+
+				fields.email = '';
+				fields.text = '';
+			}
+
+		}
 
 
 
@@ -86,22 +124,25 @@ class Form extends Component {
 			<form className="feedback" action="https://choicy.com/feedback" method="post" onSubmit= {this.submitForm}>
 				<h1>Get in Touch</h1>
 				<p>Please fill out the quick form and we will be in touch with lightening speed.</p>
+				{this.state.showMsg &&
+					<div className="showMsg">Your feedback has been sent!</div>
+				}
 				<label htmlFor="email">Email</label>
 				<input type="email" name="email" className="email" placeholder="Your Email address" value= {this.state.fields.email} onChange={this.handleChange} />
 				{this.state.errors.email && 
 					<div className="error">{this.state.errors.email}</div>
 				}
-				<label htmlFor="feedback">Message</label>
-				<textarea name="feedback" className="message" rows="4" cols="10" placeholder="Message" value= {this.state.fields.feedback}	onChange={this.handleChange} />
-				{this.state.errors.feedback &&
-					<div className="error">{this.state.errors.feedback}</div>
+				<label htmlFor="text">Message</label>
+				<textarea name="text" className="message" rows="4" cols="10" placeholder="Message" value= {this.state.fields.text}	onChange={this.handleChange} />
+				{this.state.errors.text &&
+					<div className="error">{this.state.errors.text}</div>
 				}
-				<input type="submit" className="button"  value="SUBMIT"/>
+				<input type="submit" className="button" value="SUBMIT"/>
 				</form>
 			);
 
 }
-}
 
+}
 
 export default Form;
