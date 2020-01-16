@@ -122,7 +122,7 @@ class Form extends Component {
 	render() {
 		return (
 
-			<form className="feedback" action="https://choicy.com/feedback" method="post" onSubmit= {this.submitForm}>
+			<form className="feedback" method="post" onSubmit= {this.submitForm}>
 				<h1>Get in Touch</h1>
 				<p>Please fill out the quick form and we will be in touch with lightening speed.</p>
 				{this.state.showMsg &&
