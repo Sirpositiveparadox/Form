@@ -144,14 +144,14 @@ class Form extends Component {
 						}
 						<div className="email-wrap">
 							<label htmlFor="email" className="email-header">Email</label>
-							<input type="email" name="email" className="email" placeholder="Your Email address" value= {this.state.fields.email} onChange={this.handleChange} />
+							<input type="email" name="email" className="email" value= {this.state.fields.email} onChange={this.handleChange} />
 							{this.state.errors.email && 
 								<div className="error">{this.state.errors.email}</div>
 							}
 						</div>
 						<div className="message-wrap">
 							<label htmlFor="text" className="message-header">Message</label>
-							<textarea name="text" className="message" rows="4" cols="10" placeholder="Message" value= {this.state.fields.text}	onChange={this.handleChange} />
+							<textarea name="text" className="message" rows="4" cols="10" value= {this.state.fields.text}	onChange={this.handleChange} />
 							{this.state.errors.text &&
 								<div className="error">{this.state.errors.text}</div>
 							}

@@ -30,14 +30,14 @@
 
 .assistant-name {
 	width: 100%;
-	font-size: 0.9em;
+	font-size: 15px;
 	text-align: center;
 	margin: 12px 0px 6px 0px;
 }
 
 .support-msg {
 	width: 100%;
-	font-size: 0.8em;
+	font-size: 12px;
  	color: #58627d;
  	text-align: center;
  	margin: 0px;
@@ -57,7 +57,7 @@
 
 .contact-header {
 
-  	font-size: 1.5em;
+  	font-size: 24px;
   	font-weight: bold;
   	width: 100%;
   	margin: 0px 0px 8px 0px;
@@ -65,7 +65,7 @@
 
 .contact-information {
   	width:100%;
-  	font-size: 0.9em;
+  	font-size: 15px;
   	margin: 0px 0px 31px 0px;
   	line-height: 1.6;
 }
@@ -81,7 +81,7 @@
 
   .email-header, .message-header {
   	width:100%;
-  	font-size: 0.8em;
+  	font-size: 12px;
     color: #788bae;
 	
 }
@@ -96,7 +96,7 @@
   	flex-direction: column;
 }
 
-input:focus, textarea:focus {
+input:focus,input:active, textarea:focus, textarea:active {
 	outline-color: #ABDAFB;
 }
 
@@ -108,20 +108,22 @@ input:focus, textarea:focus {
   	border-radius: 4px;
   	border: solid 1px #e2eaf9;
   	background-color: #ffffff;
+  	outline: none;
 }
 
 
 .email {
-  	font-size: 1em;
-  	padding: 8px 10px 8px 12px;
+  	font-size: 15px;
   	color: #0b1f48;
+  	padding: 8px 10px 8px 12px;
 
 }
 
 .message {
-	padding-left: 12px;
-	padding-right: 10px;
-	font-size: 1em;
+	padding-top: 8px;
+  	padding-right: 10px;
+  	padding-left:12px;
+	font-size: 15px;
   	color: #0b1f48;
 	resize: none;
 	white-space: pre-line;
