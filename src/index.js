@@ -4,7 +4,9 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Form from './Form.js';
 import 'tachyons';
-import './Form.css'
+import './Form.scss';
+
+
 
 ReactDOM.render(<Form />, document.getElementById('root'));
 

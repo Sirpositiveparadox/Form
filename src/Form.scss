@@ -2,6 +2,11 @@
 	width: 100%;
 }
 
+$bgcolor: #FFFFFF;
+$font: Montserrat;
+
+
+
 .support-form {
 	width: 665px;
 	display: block;
@@ -9,23 +14,43 @@
 	margin-top: 122px;
 	display: flex;
 	display: -webkit-flex;	
-	background-color: #FFFFFF;
-	font-family: Montserrat;
+	background-color: $bgcolor;
+	font-family: $font;
 	font-stretch: normal;
   	font-style: normal;
   	letter-spacing: normal;
+	@media (min-width: 320px) and (max-width: 768px){
+		flex-direction: column;
+		justify-content: center;
+		margin: auto;
+}
+
 }
 
 
 .support-member-block {
 	width: 175px;
 	margin-right: 70px;
+	@media (min-width: 320px) and (max-width: 768px){
+		width: 350px;
+		margin: auto;
+		display: inline-flex;
+		align-items: flex-start;
+		margin-top: 98px;
+		flex-wrap: wrap;
+		position: relative;
+}
 
 }
 
 .assistant-img{
 	display: flex;
 	margin: auto;
+	@media (min-width: 320px) and (max-width: 768px){
+		margin: 0px;
+		display: inline-flex;
+		justify-content: flex-start;
+		}
 }
 
 .assistant-name {
@@ -33,6 +58,13 @@
 	font-size: 15px;
 	text-align: center;
 	margin: 12px 0px 6px 0px;
+	 @media (min-width: 320px) and (max-width: 768px){
+ 		display:inline-flex;
+ 		width: 50%;
+ 		margin-left: 20px;
+ 		margin-top: 0px;
+
+	}
 }
 
 .support-msg {
@@ -41,9 +73,15 @@
  	color: #58627d;
  	text-align: center;
  	margin: 0px;
+ 	@media (min-width: 320px) and (max-width: 768px){
+ 		display:flex;
+ 		text-align: left;
+ 		margin-left: 80px;
+ 		position: absolute;
+ 		margin-top: 26px;
+ 		width: 71%;
+	}
 }
-
-
 
 .user-feedback {
 	border: 0;
@@ -52,7 +90,12 @@
 	flex-direction: column;
 	display: -webkit-flex;	
 	background-color: #FFFFFF;
-	font-family: Montserrat;
+	font-family: $font;
+	@media (min-width: 320px) and (max-width: 768px){
+		margin: auto;
+		margin-top: 54px;
+
+	}
 }
 
 .contact-header {
@@ -148,6 +191,9 @@ input:focus,input:active, textarea:focus, textarea:active {
     font-size: 1em;
     font-weight: bold;
     padding: 8px 28px 10px;
+    @media (min-width: 320px) and (max-width: 375px){
+		width:100%;
+	}
 }
 
 .button:hover {
@@ -168,7 +214,6 @@ input:focus,input:active, textarea:focus, textarea:active {
 	display: flex;
 	margin-top: 20px;
 	border-top: 0.1em solid #f0f4fa;
-
 }
 
 .contact-support-text {
@@ -179,7 +224,10 @@ input:focus,input:active, textarea:focus, textarea:active {
 	font-size: 13px;
 	font-weight: 300;
 	line-height: 1.54;
-	color: #58627d;
+	color:#58627d;
+	@media (min-width: 320px) and (max-width: 375px){
+		flex-direction: column;
+	}
 }
 
 .contact-support-email {
@@ -187,7 +235,12 @@ input:focus,input:active, textarea:focus, textarea:active {
 	display:flex;
 	justify-content: flex-end;
 	font-size: 13px;
+	font-weight: 300;
 	color: #0b1f48;
 	text-decoration: none;
+	line-height: 1.54;
+	@media (min-width: 320px) and (max-width: 375px){
+		width:100%;
+		justify-content: flex-start;
+	}
 }
-

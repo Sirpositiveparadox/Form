@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Form.css';
+import './Form.scss';
 import axios from 'axios';
 import group3 from './images/group3.jpg';
 
@@ -131,46 +131,45 @@ class Form extends Component {
 		return (
 
 			<div className="support-form">
-					<div className="support-member-block">		
-						<img src={group3} alt="Choicy support" className="assistant-img"  />
-						<h2 className="assistant-name">Jayden Clark</h2>
-						<p className="support-msg">Hi, I am a Choicy tech support employee, I will answer all your questions</p>
-					</div>
-					<form className="user-feedback" method="post" onSubmit= {this.submitForm}>
-						<h1 className="contact-header">{header}</h1>
-						<p className="contact-information">{info}</p>
-						{this.state.showMsg &&
-							<div className="showMsg">Your feedback has been sent!</div>
+				<div className="support-member-block">		
+					<img src={group3} alt="Choicy support" className="assistant-img"  />
+					<h2 className="assistant-name">Jayden Clark</h2>
+					<p className="support-msg">Hi, I am a Choicy tech support employee, I will answer all your questions</p>
+				</div>
+				<form className="user-feedback" method="post" onSubmit= {this.submitForm}>
+					<h1 className="contact-header">{header}</h1>
+					<p className="contact-information">{info}</p>
+					{this.state.showMsg &&
+						<div className="showMsg">Your feedback has been sent!</div>
+					}
+					<div className="email-wrap">
+						<label htmlFor="email" className="email-header">Email</label>
+						<input type="email" name="email" className="email" value= {this.state.fields.email} onChange={this.handleChange} />
+						{this.state.errors.email && 
+							<div className="error">{this.state.errors.email}</div>
 						}
-						<div className="email-wrap">
-							<label htmlFor="email" className="email-header">Email</label>
-							<input type="email" name="email" className="email" value= {this.state.fields.email} onChange={this.handleChange} />
-							{this.state.errors.email && 
-								<div className="error">{this.state.errors.email}</div>
-							}
-						</div>
-						<div className="message-wrap">
-							<label htmlFor="text" className="message-header">Message</label>
-							<textarea name="text" className="message" rows="4" cols="10" value= {this.state.fields.text}	onChange={this.handleChange} />
-							{this.state.errors.text &&
-								<div className="error">{this.state.errors.text}</div>
-							}
-						</div>
-		            	<div className="button-wrap">
-			                {!this.state.showMsg  &&
-			                	<input type="submit" className="button" value="Send"/>
-			                }
-			                {this.state.showMsg  &&
-			                	<input type="submit" className="button" value="Write again"/>
-			                }   
-		                </div> 
-		                <div className="email-support-wrap">
-			                <p className="contact-support-text">Or feel free to write us on e-mail: 
-				                <a href="mailto:support@choicy.com" className="contact-support-email"> support@choicy.com</a>
-				            </p>
-			             </div>
-
-					</form>
+					</div>
+					<div className="message-wrap">
+						<label htmlFor="text" className="message-header">Message</label>
+						<textarea name="text" className="message" rows="4" cols="10" value= {this.state.fields.text}	onChange={this.handleChange} />
+						{this.state.errors.text &&
+							<div className="error">{this.state.errors.text}</div>
+						}
+					</div>
+	            	<div className="button-wrap">
+		                {!this.state.showMsg  &&
+		                	<input type="submit" className="button" value="Send"/>
+		                }
+		                {this.state.showMsg  &&
+		                	<input type="submit" className="button" value="Write again"/>
+		                }   
+	                </div> 
+	                <div className="email-support-wrap">
+		                <p className="contact-support-text">Or feel free to write us on e-mail: 
+			                <a href="mailto:support@choicy.com" className="contact-support-email"> support@choicy.com</a>
+			            </p>
+		             </div>
+				</form>
 			</div>
            
 			);
